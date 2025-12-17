@@ -102,10 +102,10 @@ Row.propTypes = {
 };
 Table.propTypes = {
   children: PropTypes.node.isRequired,
-  columns: PropTypes.number.isRequired,
+  columns: PropTypes.string.isRequired,
 };
 Body.propTypes = {
-  data: PropTypes.node.isRequired,
+  data: PropTypes.array.isRequired,
   render: PropTypes.func.isRequired,
 };
 

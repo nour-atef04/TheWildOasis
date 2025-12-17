@@ -145,7 +145,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 }
 CreateCabinForm.propTypes = {
   cabinToEdit: PropTypes.object,
-  onCloseModal: PropTypes.func.isRequired,
+  onCloseModal: PropTypes.func,
 };
 
 export default CreateCabinForm;
