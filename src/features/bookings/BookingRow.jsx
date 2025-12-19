@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { format, isToday } from "date-fns";
 
@@ -36,12 +37,9 @@ const Amount = styled.div`
 
 function BookingRow({
   booking: {
-    id: bookingId,
-    created_at,
     startDate,
     endDate,
     numNights,
-    numGuests,
     totalPrice,
     status,
     guests: { fullName: guestName, email },
@@ -82,5 +80,22 @@ function BookingRow({
     </Table.Row>
   );
 }
+
+BookingRow.propTypes = {
+  booking: PropTypes.shape({
+    startDate: PropTypes.string.isRequired,
+    endDate: PropTypes.string.isRequired,
+    numNights: PropTypes.number.isRequired,
+    totalPrice: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired,
+    guests: PropTypes.shape({
+      fullName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+    }).isRequired,
+    cabins: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default BookingRow;
