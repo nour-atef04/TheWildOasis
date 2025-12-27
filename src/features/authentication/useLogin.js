@@ -10,8 +10,8 @@ export function useLogin() {
   const { mutate: login, isLoading } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
-      queryClient.setQueriesData(["user"], user); // set some data in the react query cache to be fetched again immediately in useUser, instead of fetching again
-      navigate("/dashboard");
+      queryClient.setQueryData(["user"], user.user); // set some data in the react query cache to be fetched again immediately in useUser, instead of fetching again
+      navigate("/dashboard", { replace: true });
     },
     onError: (error) => console.log(error.message),
   });
